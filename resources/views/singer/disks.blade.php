@@ -9,17 +9,7 @@
                         {{$singer->name}}
                     </div>
                     <div class="card-body">
-                        @forelse($singer->disks as $disk)
-                            <div class=" pb-1 pt-1 border-bottom">
-                                <a href="{{route('disk.edit', $disk->id)}}">
-                                    {{$disk->name}}
-                                </a>
-                            </div>
-                        @empty
-                            <div class="alert alert-info">
-                                Singer Has no Disks
-                            </div>
-                        @endforelse
+                        @include('disk._disk_list', ['disks'=>$singer->disks])
                     </div>
                 </div>
             </div>
