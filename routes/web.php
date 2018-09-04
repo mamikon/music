@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/singers', 'SingerController@singers')->name('singer-list');
+Route::get('/singer/{singer}', 'SingerController@singerDisks')->name('singer-disks');
+Route::resource('/disk', 'DiskController', ['except' => 'show']);
